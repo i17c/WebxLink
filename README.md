@@ -29,3 +29,5 @@ What's Webx? It's a web framework. see [http://openwebx.org/](http://openwebx.or
 [http://www.laiwang.com/](http://www.laiwang.com/)
 
 ![1](http://i01.lw.aliimg.com/tfs/TB15JfxGXXXXXcrXFXXXCDWUVXXLAIWANGi_1_1136_1136.jpg)
+
+我的另一个插件 [AutoGenerator - 数据持久层自动生成器](https://github.com/i17c/AutoGenerator)
