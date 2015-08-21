@@ -1,0 +1,73 @@
+<idea-plugin version="2">
+  <id>com.fishy.plugin.idea.webxlink</id>
+  <name>Webx Link</name>
+  <version>1.0.1</version>
+  <vendor email="i17c.net@gmail.com" url="http://weibo.com/dxkkk">独行</vendor>
+
+  <description><![CDATA[
+
+      It's a tool for switch file in IDEA Editor between vm and java files which is called "Screen" or "Control" in Webx Framework.
+      With this plugin, you will find 3 ways to switch files:(shortcut key: ctrl+\)
+      <br>1. "WebxLink" action in the "Tools" menu
+      <br>2. "WebxLink" action in the sub menu named "Go TO" in the right-click menu
+      <br>3. gutter bar icon at the left side of the editor area, if the file is vm/java of "Screen"/"Control".
+      <br>And if the file is not "Screen" or "Control", the action will do nothing.
+      <br>What's Webx? It's a web framework. see <a href="http://openwebx.org/" target="_blank">http://openwebx.org/</a>
+      <br>
+      <br>这个插件的主要目的是提高webx框架的开发效率,将webx的vm和screen/control进行快速切换.
+      项目启动后, 如果插件已经激活,则将在三个地方出现改变vm和java文件的操作(快捷键为Ctrl+\).
+      <br>1. Tools 菜单出现 "WebxLink"
+      <br>2. 文本编辑器的右键菜单"Go To"子菜单将出现"WebxLink"
+      <br>3. 编辑区的左侧断点显示条上, Screen或者Control的java文件的类名行和vm模板的第一行将有一个可以点击的图标
+      <br><br>什么是Webx框架? 详情请见<a href="http://openwebx.org/" target="_blank">http://openwebx.org/</a>
+      <br>
+      <br><a href="http://www.laiwang.com/" target="_blank"><img src="https://i01.lw.aliimg.com/tfs/TB15JfxGXXXXXcrXFXXXCDWUVXXLAIWANGi_1_1136_1136.jpg" border="0" width="120" height="120"></a>
+
+    ]]></description>
+
+  <change-notes><![CDATA[
+      2014.9.20. v1.0.1 support to jdk 1.6 and add English ReadMe (jdk>=1.6)<br>
+      2014.9.16. v1.0.0 project create (jdk>=1.7)<br>
+      <!--<em></em>-->
+    ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="107.105"/>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+      <component>
+          <implementation-class>cn.fishy.plugin.idea.webxlink.Jumper</implementation-class>
+      </component>
+      <component>
+          <implementation-class>cn.fishy.plugin.idea.webxlink.util.PsiClassManager</implementation-class>
+      </component>
+      <component>
+          <implementation-class>cn.fishy.plugin.idea.webxlink.Marker</implementation-class>
+      </component>
+  </project-components>
+
+  <actions>
+      <action id="WebxLink" class="cn.fishy.plugin.idea.webxlink.WebxLink" text="WebxLink">
+          <add-to-group group-id="ToolsMenu" anchor="first"/>
+          <add-to-group group-id="EditorPopupMenu.GoTo" anchor="last"/>
+          <keyboard-shortcut keymap="$default" first-keystroke="ctrl BACK_SLASH"/>
+      </action>
+  </actions>
+
+</idea-plugin>
